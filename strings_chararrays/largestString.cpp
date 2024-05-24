@@ -10,7 +10,8 @@ int main() {
     cin.get(); // after entering n, it takes new line into it else we loop only 4 times for n=5
 
     int largestLen=0;
-    char sentence[1000];
+
+    char sentence[1000]; // it will be reused for all strings
     char largest[1000];
 
     while(n--) {
