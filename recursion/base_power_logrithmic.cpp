@@ -11,7 +11,7 @@ int basePowerLinear(int base, int power) {
     else {
         int halfOfPowerResult = basePowerLinear(base, power / 2);
         int finalResult = halfOfPowerResult * halfOfPowerResult;
-        if(power % 2 != 0) finalResult *= 2;
+        if(power % 2 != 0) finalResult *= base;
         return finalResult;
     }
 }
