@@ -7,8 +7,8 @@ int main() {
     
     cout << endl;
 
-    int arr[100];
-    int a[100] = {0};
+    int arr[100]; // allocates a memory of 4*100 = 400 bytes. static memory allocation. This array contains garbage value
+    int a[100] = {0}; // when we initialize an array with 0, rest of the elements will also be set as 0
     cout << a[0] << endl;
     cout << a[1] << endl;
     cout << a[2] << endl;
