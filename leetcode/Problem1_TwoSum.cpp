@@ -77,9 +77,25 @@ void twoSumUsingMap(int arr [], int n, int target) {
 }
 
 /**
-  TC: sort-> O(N LogN), binary search -> O(Log N), arr traverse -> O(N) 
+ ->  unordered_map uses a hash table to store its elements.
+ ->  map uses a self-balancing binary search tree (usually a Red-Black Tree)
+ -> map has O(Log n) complexity for insert, lookup, delete,
+ -> so used unordered_map, it has O(1) average case, O(n) worst case, so we say O(1)
+ */
+vector<int> twoSumUsingMapVector(vector<int> & nums, int target) {
+    unordered_map<int, int> map;
+    for(int i=0;i<nums.size();i++) {
+        int complement = target - nums[i];
+        if(map.find(complement) != map.end()) return {map[complement], i};
+        map[nums[i]] = i;
+    }
+    return {};
+}
+
+/**
+  TC: sort-> O(n log n), binary search -> O(Log N), arr traverse -> O(n) 
   so, binary search + traverse -> O(N Log N)
-  total: O(N logN) + O(N log N)
+  total: O(n log n) + O(N log N)
   AS: O(1)
  */
 bool twoSumUsingBinarySearch(int arr [], int n, int target) {
@@ -117,12 +133,12 @@ bool twoSumUsingTwoPointers(int arr [], int n, int target) {
   unordered_set is essentially a hashset. It stores elements in hashtable.
   It allows for O(1) for lookups, insertions and deletions.
 
-  TC: O(N)
-  AS: O(N)
+  TC: O(n)
+  AS: O(n)
  */
 bool twoSumUsingHashing(int arr [], int n, int target) {
    
-    unordered_set<int> set;
+    unordered_set<int> set; 
     for(int i=0;i<n;i++) {
         if(set.find(target-arr[i]) != set.end()) return true;
         
@@ -139,9 +155,7 @@ int main() {
    int n = sizeof(arr) / sizeof(int);
    cout << endl;
 
-  bool res = twoSumUsingHashing(arr, n, 15);
-  cout << res << endl;
-  cout << (res ? "true" : "false") << endl;
+ // cout << (res ? "true" : "false") << endl;
 // twoSumUsingMap(arr, n, 15);
 //    pair<int, int> result = 
 
